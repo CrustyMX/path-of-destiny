@@ -1,6 +1,6 @@
 # Path of Destiny
 
-Open-world action RPG blending Elden Ring combat, Outriders sci-fi environments, and Warhammer 40K aesthetics.
+Open-world SciFi action RPG blending Destiny/Outriders style combat with Path of Exile 2 style gear and ability systems.
 
 ## Quick Start
 
