@@ -1,0 +1,20 @@
+# Godot
+.godot/
+*.translation
+
+# Export builds
+export/
+build/
+
+# Secrets and local sync config
+.sync_windows.credentials
+sync_windows.credentials
+sync_windows.conf
+
+# Debug artifacts
+debug/screenshots/*.png
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo

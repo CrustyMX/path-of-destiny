@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://damagenum001"]
+
+[node name="DamageNumber" type="Label3D"]
+font_size = 28
+outline_size = 8
+modulate = Color(1, 0.82, 0.25, 1)
+billboard = 1
+pixel_size = 0.007
+text = "0"

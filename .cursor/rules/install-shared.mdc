@@ -1,0 +1,22 @@
+---
+description: Sync Path of Destiny to /opt and Windows SMB after gameplay changes
+globs: path-of-destiny/**/*
+alwaysApply: false
+---
+
+# Path of Destiny — deploy after changes
+
+When you finish meaningful changes under `path-of-destiny/` (scripts, scenes, assets, project settings), deploy everything with one command:
+
+```bash
+sudo bash /root/.cursor/projects/ai_projects/path-of-destiny/install_shared.sh
+```
+
+That single script copies to `/opt/path-of-destiny`, updates `/usr/local/bin/path-of-destiny`, **and automatically syncs to the Windows SMB share** (`\\192.168.1.50\godot\path-of-destiny`) when `sync_windows.credentials` is present.
+
+Run this at the end of the task when gameplay, UI, controls, or project files changed. Skip for docs-only or comment-only edits unless the user asks.
+
+Do not ask the user to run it manually — run it yourself (requires `sudo` / `all` permissions).
+
+To skip Windows sync only: `SYNC_WINDOWS=0 sudo bash install_shared.sh`
+

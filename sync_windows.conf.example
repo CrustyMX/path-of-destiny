@@ -1,0 +1,10 @@
+# Optional non-secret overrides for sync_windows.sh
+# Copy to sync_windows.conf and edit as needed.
+
+SMB_HOST="192.168.1.50"
+SMB_USER="darrell"
+SMB_SHARE="godot"
+SMB_REMOTE_DIR="path-of-destiny"
+
+# Leave empty to use a temporary mount under /tmp
+# SMB_MOUNT_POINT="/mnt/path-of-destiny-windows"

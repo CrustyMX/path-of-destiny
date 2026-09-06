@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://boss001"]
+
+[ext_resource type="Script" path="res://scripts/enemies/boss.gd" id="1_boss"]
+[ext_resource type="Script" path="res://scripts/systems/boss_arena.gd" id="2_arena"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_boss"]
+radius = 1.2
+height = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_inner"]
+radius = 11.0
+height = 6.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_attack"]
+radius = 5.0
+
+[node name="BossArena" type="Area3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_arena")
+
+[node name="InnerTrigger" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InnerTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CylinderShape3D_inner")
+
+[node name="TriggerLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+pixel_size = 0.015
+text = "BOSS ARENA"
+font_size = 48
+outline_size = 8
+modulate = Color(1, 0.2, 0.1, 1)
+
+[node name="Markers" type="Node3D" parent="."]
+
+[node name="BarrierWalls" type="Node3D" parent="."]
+
+[node name="Boss" type="CharacterBody3D" parent="."]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_boss")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_boss")
+
+[node name="Model" type="Node3D" parent="Boss"]
+
+[node name="AttackArea" type="Area3D" parent="Boss"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+shape = SubResource("SphereShape3D_attack")
+
+[node name="Hitbox" type="Area3D" parent="Boss"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_boss")
